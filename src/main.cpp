@@ -1,18 +1,35 @@
 
 #include "GameFolder.hpp"
 #include "graphics/Window.hpp"
+#include "graphics/Instance.hpp"
+#include "graphics/ValidationLayer.hpp"
 
-int main() {
-    Window window;
+void game() {
     GameFolder gf;
 
-    window.create();
+    InstanceSettings instanceExtensions;
+    Window window(instanceExtensions);
+    ValidationLayer validationLayer(instanceExtensions);
+    Instance instance;
+    instance.create(instanceExtensions);
 
+    window.create();
+    
     while(window.update()){
         glfwPollEvents();   
     }
+}
 
-
-
+int main(int argc, char const *argv[])
+{
+    try{
+        game();
+    } catch (const vk::SystemError& err){
+        std::cerr << "Vulkan error: " << err.what() << std::endl;
+        return 1;
+    }catch (const std::exception& err){
+        std::cerr << "Error: " << err.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
