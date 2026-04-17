@@ -16,9 +16,9 @@ struct InstanceSettings{
 class Instance
 {
     vk::raii::Context  context;
-    vk::raii::Instance instance = nullptr;
 public:
-    std::vector<int> extension;
+    vk::raii::Instance instance = nullptr;
+    
 
     Instance(/* args */);
     ~Instance();

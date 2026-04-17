@@ -3,6 +3,7 @@
 #include "graphics/Window.hpp"
 #include "graphics/Instance.hpp"
 #include "graphics/ValidationLayer.hpp"
+#include "graphics/Device.hpp"
 
 void game() {
     GameFolder gf;
@@ -12,6 +13,8 @@ void game() {
     ValidationLayer validationLayer(instanceExtensions);
     Instance instance;
     instance.create(instanceExtensions);
+    Device device;
+    device.create(instance);
 
     window.create();
     
