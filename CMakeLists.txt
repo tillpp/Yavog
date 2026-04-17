@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)  
 include(FetchContent)
-project(YAVG)
+project(YAVOG)
 set(CMAKE_CXX_STANDARD 20)           
 
 
@@ -41,7 +41,7 @@ include_directories(${CMAKE_SOURCE_DIR}/libs/include)
 link_directories(${CMAKE_SOURCE_DIR}/libs/lib)
 
 # Add executable target with source files listed in SOURCE_FILES variable
-add_executable (YAVG ${SOURCE_FILES})
-target_link_libraries(YAVG glfw)
-target_link_libraries(YAVG vulkan)
+add_executable (YAVOG ${SOURCE_FILES})
+target_link_libraries(YAVOG glfw)
+target_link_libraries(YAVOG vulkan)
 
